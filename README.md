@@ -1,6 +1,6 @@
 # Como usar?
 
-A especificação da máquina é dada em uma arquivo .txt, a contrução do .txt deve seguir da seguinte forma:
+A especificação da máquina é dada em uma arquivo .txt, a construção do .txt deve seguir da seguinte forma:
 
 -------------------------------------------------------------
 
