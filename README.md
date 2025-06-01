@@ -5,17 +5,25 @@ Clique [aqui](https://deyvib.github.io/MaquinaDeTuringND/) para acessar a máqui
 A especificação da máquina é dada em um arquivo .txt, a construção do .txt deve seguir da seguinte forma:
 
 ```
-
-estados: q0 q1 ....
-alfabeto: a b ....
-fitaAlfabeto: a b ⊔ ⊳  ....
+# txt que especifica a máquina de turing para reconhecer a linguagem a(3n)
+estados: q0 q1 q2 q3 q4 qa qr
+alfabeto: a
+fitaAlfabeto:a ⊔
 estadoInicial: q0
 estadosAceita: qa
 estadosRejeita: qr
 
-q0 a -> q1 * R
+# Ignorar ⊔ inicial
+q0 ⊔ -> q1 * R
 
-...
+q1 ⊔ -> qa ⊔ *
+q1 a -> q2 * R
+
+q2 a -> q3 * R
+q2 ⊔ -> qr * *
+
+q3 a -> q1 * R
+q3 ⊔ -> qr * *
 
 ```
 
