@@ -4,11 +4,16 @@ A especificação da máquina é dada em uma arquivo .txt, a contrução do .txt
 
 -------------------------------------------------------------
 
-estados: q0 q1...
-alfabeto: a b...
-fitaAlfabeto: a b ⊔ ⊳ ...
+estados: q0 q1 ....
+
+alfabeto: a b ....
+
+fitaAlfabeto: a b ⊔ ⊳  ....
+
 estadoInicial: q0
+
 estadosAceita: qa
+
 estadosRejeita: qr
 
 q0 a -> q1 * R
