@@ -1,12 +1,22 @@
-# React + Vite
+# Como usar?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A especificação da máquina é dada em uma arquivo .txt, a contrução do .txt deve seguir da seguinte forma:
 
-Currently, two official plugins are available:
+-------------------------------------------------------------
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+estados: q0 q1...
+alfabeto: a b...
+fitaAlfabeto: a b ⊔ ⊳ ...
+estadoInicial: q0
+estadosAceita: qa
+estadosRejeita: qr
 
-## Expanding the ESLint configuration
+q0 a -> q1 * R
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+...
+
+-----------------------------------------------------------
+
+Após "estadosRejeita", até o final do arquivo, ficam as transição, sempre separadas por ->, o lado esquerdo, um tupla, contém o estado e o simbolo lido pelo cabeçote, o lado direito, uma tripla, corresponde a uma derivação a partir da configuração anterior, primeiro vem o próximo estado, depois o simbolo para sobreescrever, e por fim a direção do movimento do cabeçote, R direita, L esquerda, ao usar asterisco (*), você ignora o simbolo lido, o simbolo a ser escrito ou ignora a movimentação do cabeçote naquela transição
+
+Na pasta "machines" contem 4 arquivos .txt pronto com as linguagens ww, a(2^n), strings com dois a's ou 2 b's seguidos e a linguagem a(3n), você usá-las para testes, você também pode definir o número de passos máximos nas derivações e decidir durante o teste se continua ou não, as linguagens ww, e dois a's ou b's seguidos, elas possuem loop's garantidos então sempre terá um ramo que existirá infinitamente, os outros dois arquivos descrevem uma máquina que decidem a linguagem, então não terá loops, o campo de testes só aceita strings que possuem simbolos válidos no alfabeto da linguagem ou vazio (⊔)
