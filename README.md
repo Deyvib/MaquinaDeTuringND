@@ -1,6 +1,6 @@
 # Como usar?
 
-Clique [aqui](https://deyvib.github.io/MaquinaDeTuringND/) para acessar a máquina
+Clique [aqui](https://deyvib.github.io/MaquinaDeTuringND/) para acessar a máquina pelo github pages
 
 A especificação da máquina é dada em uma arquivo .txt, a construção do .txt deve seguir da seguinte forma:
 
