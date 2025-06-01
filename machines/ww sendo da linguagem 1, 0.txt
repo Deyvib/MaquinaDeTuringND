@@ -1,0 +1,59 @@
+estados: q0 q1 q2 q3 q4 q5 q6 q7 q8 qa qr
+alfabeto: 1 0
+fitaAlfabeto: 1 0 ⊔ ⊳ X
+estadoInicial: q0
+estadosAceita: qa
+estadosRejeita: qr
+
+# Ignorar ⊔ inicial
+q0 ⊔ -> q1 * R
+
+# Apenas verifico se a string é vazia para aceitar ou continuar
+q1 ⊔ -> qa * *
+q1 * -> q2 * *
+
+# O não determinismo ocorre aqui, pode continuar no q2, ou seguir lendo 0 ou 1, então eu permito ele escolher algum lugar da string para dividir ela e comparar suas metades
+q2 * -> q2 * R
+q2 1 -> q3 X R
+q2 0 -> q4 X R
+
+# Vou pra direita até achar vazio (pra depois procurar o número 1)
+q3 X -> q3 * R
+q3 1 -> q3 * R
+q3 0 -> q3 * R
+q3 ⊔ -> q5 * L
+
+# Vou pra direita até achar vazio (pra depois procurar o número 0)
+q4 X -> q4 * R
+q4 1 -> q4 * R
+q4 0 -> q4 * R
+q4 ⊔ -> q6 * L
+
+# Ao voltar, eu preciso necessariamente ver o número 1 e colocar vazio nele, qualquer outro símbolo rejeita
+q5 1 -> q7 ⊔ L
+q5 0 -> qr * *
+q5 ⊔ -> qr * *
+q5 X -> qr * *
+
+# Ao voltar, eu preciso necessariamente ver o número 0 e colocar vazio nele, qualquer outro símbolo rejeita
+q6 0 -> q7 ⊔ L
+q6 1 -> qr * *
+q6 ⊔ -> qr * *
+q6 X -> qr * *
+
+# Vou pra esquerda até achar o primeiro X que marquei
+q7 1 -> q7 * L
+q7 0 -> q7 * L
+q7 X -> q9 * L
+
+# Ao continuar lendo X continuo indo pra esquerda, até encontrar 1 ou 0 e repetir o processo, se eu chego no vazio, a primeira parte de string acabou, preciso garantir no q10 que a segunda também acabou
+q9 X -> q9 * L
+q9 1 -> q3 X R
+q9 0 -> q4 X R
+q9 ⊔ -> q10 * R
+
+# Para garantir que a segunda acabou, continuo lendo X até achar vazio, se eu não achar 0 ou 1 nesse caminho, eu aceito, se eu achar, eu rejeito
+q10 X -> q10 * R
+q10 0 -> qr * *
+q10 1 -> qr * *
+q10 ⊔ -> qa * *

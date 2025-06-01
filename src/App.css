@@ -1,0 +1,30 @@
+
+.centro {
+  margin: 15px 0px;
+  justify-content: center;
+  background-color: rgba(99, 98, 98, 0.36);
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+  backdrop-filter: blur(10px) saturate(80%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.div{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.file{
+   padding: 10px 20px;
+   color: white;
+   border-radius: 5px;
+   cursor: pointer;
+   background-color: #252932;
+}
+
+.input2::placeholder {
+ color: black;
+ opacity: 0.5;
+}

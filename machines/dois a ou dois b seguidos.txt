@@ -1,0 +1,24 @@
+estados: q0 q1 q2 q3 q4 qa qr
+alfabeto: a b
+fitaAlfabeto:a b ⊔
+estadoInicial: q0
+estadosAceita: qa
+estadosRejeita: qr
+
+# Ignorar ⊔ inicial
+q0 ⊔ -> q1 * R
+
+q1 ⊔ -> qr ⊔ *
+q1 * -> q2 * *
+
+q2 * -> q2 * R
+q2 a -> q3 a R
+q2 b -> q4 b R
+
+q3 a -> qa a *
+q4 b -> qa b *
+
+q3 b -> qr b *
+q3 ⊔ -> qr ⊔ *
+q4 a -> qr a *
+q4 ⊔ -> qr ⊔ *
