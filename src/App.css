@@ -1,6 +1,7 @@
 
 .centro {
   margin: 15px 0px;
+  max-width: 108vh;
   justify-content: center;
   background-color: rgba(99, 98, 98, 0.36);
   border-radius: 15px;

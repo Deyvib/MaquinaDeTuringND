@@ -6,7 +6,7 @@ const App = () => {
   const [inputString, setInputString] = useState("");
   const [tests, setTests] = useState([]);
   const [showDetails, setShowDetails] = useState(false);
-  const [maxSteps, setMaxSteps] = useState(100);
+  const [maxSteps, setMaxSteps] = useState(80);
   const [fileName, setFileName] = useState("");
   const fileInputRef = useRef(); 
 
@@ -78,7 +78,11 @@ const App = () => {
 
     if (current.steps > maxTransitions) {
       const shouldContinue = window.confirm("Número máximo de transições atingido. Deseja continuar?");
-      if (!shouldContinue) continue;
+      if (!shouldContinue) {
+        current.steps = -1;
+        results.push(current);
+        continue
+      };
       maxTransitions += maxSteps;
     }
 
@@ -158,6 +162,8 @@ const handleButtonClick = () => {
         ? "✅ Aceita"
         : machine.estadosRejeita.includes(r.estado)
         ? "❌ Rejeita"
+        : r.steps === -1
+        ? "♾️ Provável loop"
         : "⏹ Parou sem encontrar transição válida";
       return (
         <div key={i} style={{ marginBottom: 10 }}>
@@ -173,7 +179,7 @@ const handleButtonClick = () => {
 
     <div className="centro" style={{ padding: 50, fontFamily: "Arial" }}>
       <h1 style={{ marginBottom: 30, marginTop: 0 }}>Simulador de Máquina de Turing N.D.</h1>
-      <div style={{display: "flex", alignItems: "center", gap: 10}}>
+      <div style={{display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap"}}>
         <input type="file" accept=".txt" ref={fileInputRef} onChange={handleFileUpload} style={{ display: "none" }}/>
         <label>Carregar máquina (.txt):{" "}</label>
         <button onClick={handleButtonClick} className="file">Selecionar arquivo .txt</button>
@@ -184,7 +190,7 @@ const handleButtonClick = () => {
       {machine && (
         <>
           <div className="div" style={{ marginTop: 20 }}>
-            <div>
+            <div style={{display: "flex", flexWrap: "wrap", gap: 10}}>
             <input className="input2" type="text" placeholder="Digite uma string" value={inputString} onChange={(e) => setInputString(e.target.value)}
               style={{backgroundColor: "#b4b4c4", borderRadius: 5, border: "none", padding: 10, color: "black", fontSize: 15, fontWeight: "bold"}}
             />
