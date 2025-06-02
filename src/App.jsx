@@ -138,7 +138,7 @@ const handleButtonClick = () => {
     return;
   }
     const results = simulate(machine, inputString, maxSteps);
-    setTests(prev => [...prev, { input: inputString, results }]);
+    setTests(prev => [{ input: inputString, results }, ...prev]);
     setInputString("");
   };
 
