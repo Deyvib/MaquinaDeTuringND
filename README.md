@@ -69,3 +69,15 @@ npm run dev
 ```
 
 Após isso o terminal fornecerá o link para você acessar a aplicação.
+
+**OBS:** Eu mudei a linha 141 do arquivo App.jsx para sempre colocar os próximos testes de String acima dos antigos, então essa linha estará diferente do arquivo no Sigaa, é apenas um detalhe visual, sem afetar a parte de simulação, e a mudança foi feita 02/06/2025 às 2:07, ainda no prazo do trabalho.
+
+Antes estava assim
+```
+setTests(prev => [...prev, { input: inputString, results }]);
+```
+Agora está assim:
+```
+setTests(prev => [{ input: inputString, results }, ...prev]);
+```
+
