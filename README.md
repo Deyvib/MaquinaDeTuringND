@@ -49,3 +49,23 @@ Você pode usá-las para testes, baixe o arquivo ou copie e cole para algum .txt
 O código utilizado na simulação da máquina de Turing não determinística foi feito com React (JavaScript), dado que eu precisaria gerenciar diversos estados e armazenar múltiplas configurações da máquina, decidi criar uma interface interativa para mostrar os resultados com mais facilidade e de uma forma mais limpa. Você pode ver toda a lógica na função simulate no arquivo App.jsx, a lógica para leitura do arquivo .txt e posterior armazenamento da especificação da máquina fica na função parseMachineFile.
 
 > Como a parte direita da transição é uma tripla, é diferente da tupla que vimos na abordagem da disciplina (estado e movimento do cabeçote ou estado e simbolo para escrever), mas isso não é um problema, você só precisa garantir que exista um asterisco no simbolo escrito ou no movimento do cabeçote em todas as transições (q0 * L, q0 a *), assim, continuamos na convenção usada em sala de aula, então depende de como você construir a máquina no .txt, o exemplo acima (𝑎^(3n)) está dentro das convenções usadas na disciplina.
+
+# Como rodar localmente
+
+Clone o repositório:
+```
+git clone https://github.com/Deyvib/MaquinaDeTuringND.git
+cd MaquinaDeTuringND
+```
+
+Instale o Node.js se não o tiver:
+```
+npm install
+```
+
+Comando para iniciar o servidor localmente:
+```
+npm run dev
+```
+
+Após isso o terminal fornecerá o link para você acessar a aplicação.
