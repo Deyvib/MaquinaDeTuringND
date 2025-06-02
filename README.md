@@ -35,8 +35,11 @@ Após "estadosRejeita" até o final do arquivo ficam as transições, sempre sep
 A pasta "machines" contém 4 arquivos .txt prontos com as linguagens:
 
 > ww | w ∈ {0, 1}*;
+
 > 𝑎^(2^n);
+
 > Strings com dois a's ou 2 b's seguidos ∈ {a};
+
 > 𝑎^(3n)
 
 Você pode usá-las para testes, baixe o arquivo ou copie e cole para algum .txt do seu dispositivo, você também pode definir o número de passos máximos nas derivações e decidir durante o teste se continua ou não, nos arquivos das linguagens ww, e dois a's ou b's seguidos, existem loop's garantidos (utilizam não determinismo de forma que o cabeçote irá para a direita para sempre) então terá um ramo que existirá infinitamente, os outros dois arquivos descrevem uma máquina que decidem a linguagem, então não terá loop's, o campo de testes só aceita strings que possuem símbolos válidos no alfabeto da linguagem ou vazio (⊔).
