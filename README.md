@@ -38,7 +38,7 @@ A pasta "machines" contém 4 arquivos .txt prontos com as linguagens:
 
 > 𝑎^(2^n);
 
-> Strings com dois a's ou 2 b's seguidos ∈ {a};
+> Strings com dois a's ou 2 b's seguidos ∈ {a, b};
 
 > 𝑎^(3n)
 
